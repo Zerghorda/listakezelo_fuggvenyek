@@ -1,6 +1,11 @@
 import { emberLista } from "./adat.js";
 import { megjelenites, tablazatOsszealit } from "./fuggvenyek.js";
-import { szuresNevSzerint, tablazatRendez, sorTorles } from "./adatKezelo.js";
+import {
+  szuresNevSzerint,
+  tablazatRendez,
+  sorTorles,
+  korSzures,
+} from "./adatKezelo.js";
 /*jelenítsuk meg az adatokat egy táblázatba az 
 adatok div be,az urlap div-ben legyen egy úrlap,amivel adatokat tudunk
 a táblázatba beletenni 
@@ -32,6 +37,7 @@ function init(lista) {
   let txt = tablazatOsszealit(lista);
   megjelenites(txt);
   nevRendez(lista);
+  korSzuresEsemeny(lista);
   sorTorol();
 }
 
@@ -48,6 +54,13 @@ function nevSzuresEsemeny() {
   szuroELEM.on("keyup", function () {
     let szuroSzoveg = szuroELEM.val();
     const LISTA = szuresNevSzerint(emberLista, szuroSzoveg);
+    init(LISTA);
+  });
+}
+function korSzuresEsemeny() {
+  const korELEM = $(".adatok th").eq(1);
+  korELEM.on("click", function () {
+    const LISTA = korSzures(emberLista);
     init(LISTA);
   });
 }

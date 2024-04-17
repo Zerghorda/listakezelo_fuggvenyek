@@ -17,3 +17,10 @@ export function sorTorles(lista, index) {
   lista.splice(index, 1);
   return lista;
 }
+export function korSzures(lista) {
+  lista.sort(function (e1, e2) {
+    console.log(e1, e2);
+    return e1.kor > e2.kor;
+  });
+  return lista;
+}
