@@ -1,4 +1,6 @@
 import { emberLista } from "./adat.js";
+import { megjelenites, tablazatOsszealit } from "./fuggvenyek.js";
+import { tablazatRendez } from "./adatKezelo.js";
 /*jelenítsuk meg az adatokat egy táblázatba az 
 adatok div be,az urlap div-ben legyen egy úrlap,amivel adatokat tudunk
 a táblázatba beletenni 
@@ -22,3 +24,20 @@ amelyben a név mezőjében az adott szó
 meg jelenítjuk a szürt listát az oldalon
 akkor fog lefutni ha a szürö mezö tartalma megváltozik 
 */
+let nevIrany = 1;
+init(emberLista);
+
+function init(lista) {
+  let txt = tablazatOsszealit(lista);
+  megjelenites(txt);
+  nevRendez(lista);
+}
+
+function nevRendez(lista) {
+  const nevELEM = $(".adatok th").eq(0);
+  nevELEM.on("click", function () {
+    const LISTA = tablazatRendez(emberLista,nevIrany);
+    nevIrany *= -1;
+    init(LISTA);
+  });
+}
