@@ -3,12 +3,12 @@ export function tablazatOsszealit(lista) {
   txt += `<table class='table table-striped'>`;
   //szorgalmi fejléc kulcsai is ciklussal írjuk ki
   txt += "<tr><th>Név</th><th>Kor</th><th>Nem</th><th></th></tr>";
-  lista.forEach((element) => {
+  lista.forEach((element, i) => {
     txt += `<tr>`;
     for (const key in element) {
       txt += `<td>${element[key]}</td>`;
     }
-    txt += `<td>🗑️</td>`;
+    txt += `<td id='${i} class='kuka'>🗑️</td>`;
     txt += `</tr>`;
   });
   txt += "</table>";

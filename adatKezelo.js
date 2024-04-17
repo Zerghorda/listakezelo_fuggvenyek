@@ -7,3 +7,13 @@ export function tablazatRendez(lista, irany) {
 }
 //szorgalmi hf tetszöleges szerint rendezni
 function atalakit(szoveg) {}
+export function szuresNevSzerint(lista, szurtSzoveg) {
+  const szurtLISTA = lista.filter(function (elem) {
+    return elem.nev.includes(szurtSzoveg);
+  });
+  return szurtLISTA;
+}
+export function sorTorles(lista, index) {
+  lista.splice(index, 1);
+  return lista;
+}

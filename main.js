@@ -1,6 +1,6 @@
 import { emberLista } from "./adat.js";
 import { megjelenites, tablazatOsszealit } from "./fuggvenyek.js";
-import { tablazatRendez } from "./adatKezelo.js";
+import { szuresNevSzerint, tablazatRendez, sorTorles } from "./adatKezelo.js";
 /*jelenítsuk meg az adatokat egy táblázatba az 
 adatok div be,az urlap div-ben legyen egy úrlap,amivel adatokat tudunk
 a táblázatba beletenni 
@@ -31,13 +31,28 @@ function init(lista) {
   let txt = tablazatOsszealit(lista);
   megjelenites(txt);
   nevRendez(lista);
+  sorTorol();
 }
 
 function nevRendez(lista) {
   const nevELEM = $(".adatok th").eq(0);
   nevELEM.on("click", function () {
-    const LISTA = tablazatRendez(emberLista,nevIrany);
+    const LISTA = tablazatRendez(emberLista, nevIrany);
     nevIrany *= -1;
+    init(LISTA);
+  });
+}
+const szuroELEM = $("#szNev");
+szuroELEM.on("keyup", function () {
+  let szuroSzoveg = szuroELEM.val();
+  const LISTA = szuresNevSzerint(emberLista, szuroSzoveg);
+  init(LISTA);
+});
+function sorTorol() {
+  const kukaELEM = $(".kuka");
+  kukaELEM.on("click", function (event) {
+    let index = event.target.id;
+    const LISTA = sorTorles(emberLista, index);
     init(LISTA);
   });
 }
