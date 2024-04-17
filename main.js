@@ -26,6 +26,7 @@ akkor fog lefutni ha a szürö mezö tartalma megváltozik
 */
 let nevIrany = 1;
 init(emberLista);
+nevSzuresEsemeny();
 
 function init(lista) {
   let txt = tablazatOsszealit(lista);
@@ -42,12 +43,15 @@ function nevRendez(lista) {
     init(LISTA);
   });
 }
-const szuroELEM = $("#szNev");
-szuroELEM.on("keyup", function () {
-  let szuroSzoveg = szuroELEM.val();
-  const LISTA = szuresNevSzerint(emberLista, szuroSzoveg);
-  init(LISTA);
-});
+function nevSzuresEsemeny() {
+  const szuroELEM = $("#szNev");
+  szuroELEM.on("keyup", function () {
+    let szuroSzoveg = szuroELEM.val();
+    const LISTA = szuresNevSzerint(emberLista, szuroSzoveg);
+    init(LISTA);
+  });
+}
+
 function sorTorol() {
   const kukaELEM = $(".kuka");
   kukaELEM.on("click", function (event) {
