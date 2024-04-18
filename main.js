@@ -6,6 +6,7 @@ import {
   sorTorles,
   korSzures,
 } from "./adatKezelo.js";
+import { adatokListaba } from "./urlapKezelo.js";
 /*jelenítsuk meg az adatokat egy táblázatba az 
 adatok div be,az urlap div-ben legyen egy úrlap,amivel adatokat tudunk
 a táblázatba beletenni 
@@ -32,8 +33,9 @@ akkor fog lefutni ha a szürö mezö tartalma megváltozik
 let nevIrany = 1;
 init(emberLista);
 nevSzuresEsemeny();
+adatokListaba(emberLista);
 
-function init(lista) {
+export function init(lista) {
   let txt = tablazatOsszealit(lista);
   megjelenites(txt);
   nevRendez(lista);

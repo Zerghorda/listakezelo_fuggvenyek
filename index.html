@@ -22,7 +22,7 @@
       </header>
       <article>
         <div class="urlap">
-          <form action="">
+          <form action="" class="was-validated">
             <div class="mb-3 mt-3">
               <label for="nev" class="form-label">Név:</label>
               <input
@@ -31,7 +31,11 @@
                 id="nev"
                 placeholder="Adjon egy nevet"
                 name="nev"
+                required
+                pattern="^[a-z0-9_-]{3,}$"
               />
+              <div class="valid-feedback">Valid.</div>
+              <div class="invalid-feedback">Please fill out this field.</div>
             </div>
             <div class="mb-3">
               <label for="kor" class="form-label">kor:</label>
@@ -41,22 +45,38 @@
                 id="kor"
                 min="0"
                 max="100"
-                placeholder="Enter password"
+                placeholder="Enter kor"
                 name="kor"
+                required
               />
+              <div class="valid-feedback">Valid.</div>
+              <div class="invalid-feedback">0-100 ig</div>
             </div>
             <div class="form-check mb-3">
               <div class="form-check mb-3">
                 <label class="form-check-label"
-                  ><input class="form-check-input" type="radio" name="nem" />
+                  ><input
+                    class="form-check-input"
+                    type="radio"
+                    name="nem"
+                    value="false"
+                  />
                   Férfi
                 </label>
               </div>
               <div class="form-check mb-3">
-                <input class="form-check-input" type="radio" name="nem" /> Nő
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="nem"
+                  value="true"
+                />
+                Nő
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" id="gomb" class="btn btn-primary">
+              Submit
+            </button>
           </form>
         </div>
         <div class="szuro">
