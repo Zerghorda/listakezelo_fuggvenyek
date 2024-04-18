@@ -70,6 +70,7 @@ function sorTorol() {
   kukaELEM.on("click", function (event) {
     let index = event.target.id;
     const LISTA = sorTorles(emberLista, index);
+    console.log(LISTA);
     init(LISTA);
   });
 }

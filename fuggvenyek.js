@@ -14,7 +14,7 @@ export function tablazatOsszealit(lista) {
     for (const key in element) {
       txt += `<td>${element[key]}</td>`;
     }
-    txt += `<td id='${i} class='kuka'>🗑️</td>`;
+    txt += `<td id='${i}' class='kuka'>🗑️</td>`;
     txt += `</tr>`;
   });
   txt += "</table>";
